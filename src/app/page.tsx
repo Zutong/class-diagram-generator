@@ -209,6 +209,50 @@ export default function Home() {
           
         </div>
       </main>
+
+      {/* SEO & Content Section */}
+      <section className="max-w-6xl mx-auto px-4 mt-16 mb-12">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
+          <div className="prose prose-blue max-w-none">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Best AI Class Diagram Generator</h2>
+            <p className="text-gray-600 mb-6">
+              Welcome to the most intuitive <strong>AI-powered Class Diagram Generator</strong>. 
+              Whether you're a software architect, developer, or computer science student, our tool lets you instantly convert plain text descriptions, user stories, or raw code into perfectly structured UML class diagrams using the power of DeepSeek AI.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 my-10">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">How it works</h3>
+                <ol className="list-decimal pl-5 text-gray-600 space-y-2">
+                  <li><strong>Describe your system:</strong> Type a natural language description of your classes, properties, and relationships.</li>
+                  <li><strong>AI Processing:</strong> Our DeepSeek-powered engine translates your text into highly accurate Mermaid.js syntax.</li>
+                  <li><strong>Instant Render & Download:</strong> View your diagram in real-time, edit the code if needed, and export as a clean SVG file.</li>
+                </ol>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Why choose an AI UML Tool?</h3>
+                <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                  <li><strong>Save Time:</strong> No more dragging and dropping boxes manually.</li>
+                  <li><strong>Developer Friendly:</strong> Powered by the standard Mermaid.js format, used natively in GitHub and Markdown.</li>
+                  <li><strong>Auto-Correction:</strong> Hit an invalid syntax error? Our "Auto-Fix" button asks AI to correct diagram syntax instantly.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions (FAQ)</h2>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-800">What is a Class Diagram?</h4>
+                <p className="text-gray-600 text-sm mt-1">A class diagram is a type of static structure diagram in UML (Unified Modeling Language) that describes the structure of a system by showing its classes, attributes, operations (or methods), and the relationships among objects.</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-800">Is this tool free?</h4>
+                <p className="text-gray-600 text-sm mt-1">Yes! You can use our tool to generate and export unlimited class diagrams. Just sign in with your Google account to get started.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
