@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://class-diagram-generator-nine.vercel.app';
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://class-diagram-ai.com';
   return [
     {
       url: baseUrl,
