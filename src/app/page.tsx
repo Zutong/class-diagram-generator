@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import MermaidPreview from "@/components/MermaidPreview";
 import { Sparkles, Copy, UserCircle2 } from "lucide-react";
@@ -43,6 +43,11 @@ export default function Home() {
   const [code, setCode] = useState(INITIAL_CODE);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copyText, setCopyText] = useState("📋 Copy Code");
+  const [usageCount, setUsageCount] = useState(0);
+
+  useEffect(() => {
+    setUsageCount(parseInt(localStorage.getItem("guest_usage_count") || "0", 10));
+  }, []);
   
   // To track errors for the fallback loop
   const [renderError, setRenderError] = useState("");
@@ -50,6 +55,12 @@ export default function Home() {
   const handleGenerate = async (retryError?: string) => {
     if (!prompt && !retryError) {
       alert("Please describe your logic or paste code first.");
+      return;
+    }
+
+    if (!session && usageCount >= 3) {
+      alert("You've reached the free generation limit. Please sign in to continue using the tool!");
+      signIn("google");
       return;
     }
 
@@ -70,6 +81,11 @@ export default function Home() {
       
       if (data.code) {
         setCode(data.code);
+        if (!session) {
+          const newCount = usageCount + 1;
+          setUsageCount(newCount);
+          localStorage.setItem("guest_usage_count", newCount.toString());
+        }
       } else {
         alert("Failed to generate code.");
       }
@@ -253,6 +269,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* JSON-LD Structured Data for FAQ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is a Class Diagram?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A class diagram is a type of static structure diagram in UML (Unified Modeling Language) that describes the structure of a system by showing its classes, attributes, operations (or methods), and the relationships among objects."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is this tool free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! You can use our tool to generate and export unlimited class diagrams. Just sign in with your Google account to get started."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }
