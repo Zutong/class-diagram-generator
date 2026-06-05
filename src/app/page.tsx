@@ -222,12 +222,12 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8 my-10">
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">How it works</h3>
-                <ol className="list-decimal pl-5 text-gray-600 space-y-2">
-                  <li><strong>Describe your system:</strong> Type a natural language description of your classes, properties, and relationships.</li>
-                  <li><strong>AI Processing:</strong> Our DeepSeek-powered engine translates your text into highly accurate Mermaid.js syntax.</li>
-                  <li><strong>Instant Render & Download:</strong> View your diagram in real-time, edit the code if needed, and export as a clean SVG file.</li>
-                </ol>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Use Cases & Scenarios</h3>
+                <ul className="list-disc pl-5 text-gray-600 space-y-2">
+                  <li><strong>For Students:</strong> Quickly nail your computer science and object-oriented programming (OOP) assignments.</li>
+                  <li><strong>For Developers:</strong> Reverse-engineer existing codebases or databases into clear schema diagrams.</li>
+                  <li><strong>For Product Managers:</strong> Visualize system architectures and product logical flows without opening complex drawing apps.</li>
+                </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Why choose an AI UML Tool?</h3>
